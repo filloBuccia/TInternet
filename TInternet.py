@@ -1,11 +1,16 @@
 import speedtest
 import sys 
 
+try:
 
-script_name, flag = sys.argv
+    script_name, flag = sys.argv
+
+except ValueError:
+    
+    print("Flag required")
+    script_name, flag = sys.argv, "-h" 
 
 test = speedtest.Speedtest()
-
 
 
 print("Loading server list...")
