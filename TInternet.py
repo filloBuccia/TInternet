@@ -7,15 +7,7 @@ import time
 import psutil 
 
 
-
-
-def main(argv):
-    try:
-        opts, args = getopt.getopt(argv,"hdup",["all","help", "monitor"])
-
-
-    except getopt.GetoptError:
-        print('''
+HELP_TEXT = '''
 Help section:
 
 TInternet is a user-friendly tool designed by filloBuccia
@@ -33,28 +25,23 @@ Flag:
 
 Exit:
 Press Ctrl-C
-''')
+'''
+
+
+
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv,"hdup",["all","help", "monitor"])
+
+
+    except getopt.GetoptError:
+        print(HELP_TEXT)
         sys.exit(2)
     
     for opt, arg in opts:
         
         if opt in ("-h", "--help"):
-            print('''
-Help section:
-
-TInternet is a user-friendly tool designed by filloBuccia
-It allows to check the download, upload and ping speed of your network 
-
-How to use the command: python3 TInternet.py [Flag]
-
-Flag:
--h  --help      Help section (where you're now)
--d              Download test
--u              Upload test
--p              Ping test
---all           Download, upload and ping test all together
-
-''')
+            print(HELP_TEXT)
             sys.exit()
 
         else:
